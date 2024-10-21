@@ -1,0 +1,10 @@
+version: '3'
+services:
+  zerotier:
+    image: turbonet_zerotier
+    container_name: turbonet_zerotier
+    devices: 
+      - /dev/net/tun:/dev/net/tun'
+    network_mode: host
+    volumes:
+      - /home/docker/zerotier/data:/var/lib/zerotier-one
