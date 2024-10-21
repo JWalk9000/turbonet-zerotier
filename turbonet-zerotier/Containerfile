@@ -4,12 +4,12 @@ FROM alpine:latest
 # Update and install necessary packages
 RUN apk update && apk upgrade && apk add --no-cache curl gnupg iproute2
 
-# Add ZeroTier's repository key and repository, and install ZeroTier One
+# Add ZeroTier's repository key and install ZeroTier One
 RUN curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/main/doc/contact%40zerotier.com.gpg' | gpg --import && \
     curl -s 'https://install.zerotier.com/' | sh
 
 # Expose necessary ports
 EXPOSE 9993/udp
 
-# Join ZeroTier network and start ZeroTier One
-ENTRYPOINT ["sh", "-c", "zerotier-one & sleep 5 && zerotier-cli join $ZEROTIER_NETWORK_ID && tail -f /dev/null"]
+# Start ZeroTier One
+ENTRYPOINT ["sh", "-c", "zerotier-one && tail -f /dev/null"]
