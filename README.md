@@ -1,10 +1,8 @@
 # ZeroTier One Docker Image 
  
- This repository contains the necessary files to build and run a ZeroTier One Docker image using both Docker and Podman. The setup includes a Containerfile (Dockerfile) and a podman-compose.yml file. 
+ This repository contains the necessary files to build and run a ZeroTier One image using both Podman and Docker. The setup includes a Containerfile (Dockerfile) and a podman-compose.yml file (rename to ```docker-compose.yml``` if using Docker-compose. 
  
- ## Getting Started 
- 
- Welcome to the ZeroTier One Docker Image setup guide! Follow these steps to get up and running with either Docker or Podman. 
+ ## Getting Started  
  
  ### Overview 
  
@@ -62,12 +60,6 @@ Replace ```<YOUR_NETWORK_ID>``` with your actual ZeroTier Network ID.
  
  ## 4. Running the Container 
  
- ### Using Docker 
- 
- Run the Docker container with docker-compose: 
- ```sh 
- docker-compose -f docker-compose.yml up -d 
- ```
  
  ### Using Podman 
  
@@ -75,6 +67,14 @@ Replace ```<YOUR_NETWORK_ID>``` with your actual ZeroTier Network ID.
  ```sh 
  podman-compose up -d 
  ```
+
+### Using Docker 
+ 
+ Run the Docker container with docker-compose: 
+ ```sh 
+ docker-compose -f docker-compose.yml up -d 
+ ```
+ 
  
  ## Notes 
  
