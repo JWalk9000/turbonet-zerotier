@@ -15,7 +15,7 @@
  
  Ensure you have the following installed on your system: 
  - Docker or Podman
- - docker-compose (optional)
+ - docker-compose or podman-compose respecfully
  - curl 
  - git (for cloning this repository) 
  
@@ -47,15 +47,26 @@
  ```sh 
  podman build -t myzerotierimage . 
  ```
+
+ Change ```myzerotierimage``` to any name you choose, remember to change the image name in the compose.yml to match.
  
  ## 3. Configuration 
- 
+
+ ### Network ID
  Set your ZeroTier Network ID in the compose.yml file: 
  ```sh
  environment: 
  - ZEROTIER_NETWORK_ID=<YOUR_NETWORK_ID> 
  ```
 Replace ```<YOUR_NETWORK_ID>``` with your actual ZeroTier Network ID. 
+
+### Persistant Data
+Set the local machine director in the compose.yml file:
+```sh
+volumes:
+ - /home/podman/zerotier/data:/var/lib/zerotier-one
+```
+Replace ```/home/podman/zerotier/``` with where you want persistant data to be saved.
 
  
  ## 4. Running the Container 
@@ -78,8 +89,8 @@ Replace ```<YOUR_NETWORK_ID>``` with your actual ZeroTier Network ID.
  
  ## Notes 
  
- - The Containerfile installs the necessary packages, sets up ZeroTier One, and ensures the container joins your specified ZeroTier network. 
- - The podman-compose.yml file maps the necessary devices and ports, and ensures that your configuration data is persisted. 
+ - The Containerfile installs the necessary packages, and sets up ZeroTier One. 
+ - The podman-compose.yml file maps the necessary devices and ports, ensures the container joins your specified ZeroTier network, and that your configuration data is persisted. 
  
  ## Troubleshooting 
  
