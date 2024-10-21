@@ -1,10 +1,14 @@
 version: '3'
 services:
   zerotier:
-    image: turbonet_zerotier
-    container_name: turbonet_zerotier
-    devices: 
-      - /dev/net/tun:/dev/net/tun'
+    image: myzerotierimage
+    container_name: myzerotiercontainer
     network_mode: host
+    environment:
+      - ZEROTIER_NETWORK_ID=<YOUR_NETWORK_ID>
+    devices:
+      - "/dev/net/tun:/dev/net/tun"
     volumes:
-      - /home/docker/zerotier/data:/var/lib/zerotier-one
+      - /home/podman/zerotier/data:/var/lib/zerotier-one
+    command: ["sh", "-c", "sleep 5 && zerotier-cli join $ZEROTIER_NETWORK_ID && tail -f /dev/null"]
+    restart: unless-stopped
