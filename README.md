@@ -83,7 +83,7 @@ Replace ```/home/podman/zerotier/``` with where you want persistant data to be s
  
  Run the Docker container with docker-compose: 
  ```sh 
- docker-compose -f docker-compose.yml up -d 
+ docker-compose up -d 
  ```
  
  
