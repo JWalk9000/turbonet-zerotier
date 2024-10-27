@@ -2,7 +2,7 @@
 
 # ZeroTier One Docker Image 
  
- This repository contains the necessary files to build and run a ZeroTier One image using both Podman and Docker. The setup includes a Containerfile (Dockerfile) and a podman-compose.yml file (rename to ```docker-compose.yml``` if using Docker-compose. 
+ This repository contains the necessary files to build and run a ZeroTier One image using both Podman and Docker. The setup includes a Containerfile and a podman-compose.yml file (rename to ```Dockerfile``` &```docker-compose.yml``` if using Docker and Docker-Compose. 
  
  ## Getting Started  
  
@@ -33,7 +33,7 @@
  
  Navigate to the directory containing the build file: Containerfile for podman, rename to Dockerfile for Docker: 
  ```sh 
- cd /path/to/turbonet-zerotier 
+ cd /path/to/Buildfile 
  ```
  
  ### Using Docker 
