@@ -6,10 +6,11 @@ services:
     network_mode: host
     environment:
       - ZEROTIER_NETWORK_ID=60ee7c034aa9b2be
-    devices:
-      - "/dev/net/tun:/dev/net/tun"
     cap_add:
       - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
     volumes:
       - /home/podman/zerotier/data:/var/lib/zerotier-one
     command: ["sh", "-c", "sleep 5 && zerotier-cli join $ZEROTIER_NETWORK_ID && tail -f /dev/null"]
