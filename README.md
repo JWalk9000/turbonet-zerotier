@@ -1,4 +1,4 @@
-## This Is A Work In Progress
+## This Is A Work In Progress: ```fully working at this time```
 
 # ZeroTier One Docker Image 
  
