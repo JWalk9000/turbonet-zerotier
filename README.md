@@ -1,4 +1,6 @@
-## This Is A Work In Progress: ```fully working inside```
+## This Is A Work In Progress and a Learning Experience: ```fully working at this time```
+
+Can be used as a starting base for other images to include Zerotier functionality.
 
 # ZeroTier One Docker Image 
  
