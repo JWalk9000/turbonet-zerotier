@@ -1,12 +1,18 @@
-# Use the Alpine base image
-FROM alpine:latest
+# Use the Debian base image
+FROM debian:latest
+
+# Set the user to root to ensure installation has the necessary privileges
+USER root
 
 # Update and install necessary packages
-RUN apk update && apk upgrade && apk add --no-cache curl gnupg iproute2
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl gnupg iproute2
 
 # Add ZeroTier's repository key and install ZeroTier One
 RUN curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/main/doc/contact%40zerotier.com.gpg' | gpg --import && \
-    curl -s 'https://install.zerotier.com/' | sh
+    curl -s 'https://install.zerotier.com/' | bash
+
+# Make sure ZeroTier binaries are in PATH
+ENV PATH="/var/lib/zerotier-one:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 # Expose necessary ports
 EXPOSE 9993/udp
