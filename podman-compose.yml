@@ -5,7 +5,7 @@ services:
     container_name: turbonet-zerotier
     network_mode: host
     environment:
-      - ZEROTIER_NETWORK_ID=60ee7c034aa9b2be
+      - ZEROTIER_NETWORK_ID=<NETWORK_ID>
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
